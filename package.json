@@ -1,0 +1,17 @@
+{
+  "name": "enterprisejs",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "CC0-1.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "2.2.1"
+  },
+  "dependencies": {
+    "@types/hapi": "16.0.0",
+    "hapi": "16.1.0",
+    "hapi-controllers": "2.0.1"
+  }
+}
