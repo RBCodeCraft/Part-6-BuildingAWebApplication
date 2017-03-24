@@ -1,21 +1,16 @@
 
-import * as Hapi from 'hapi';
+import { createServer } from './server';
+import { registerController } from 'hapi-controllers';
 
-const server = new Hapi.Server();
+import { HomeController } from './sections/home/HomeController';
+import { ErrorController } from './sections/errors/ErrorController';
 
-server.connection({
-    port: 8000
-});
+let server = createServer();
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: (request: Hapi.Request, reply: Hapi.IReply) => {
-        reply('Hey!');
-    }
-});
+registerController(server, HomeController, () => new HomeController());
+registerController(server, ErrorController, () => new ErrorController());
 
 server.start((err: any) => {
     if (err) throw err;
-    console.log('Hapi Server running at', server.connections[0].info.uri)
+    console.log('Hapi Server running at', server.connections[0].info.uri);
 });
