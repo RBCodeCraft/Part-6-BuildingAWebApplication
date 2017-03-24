@@ -11,7 +11,7 @@ export class HomeController extends BaseController {
         method: 'GET',
         path: '/'
     })
-    homeController() {
+    homePage() {
         this.renderPage(<HomePage />, 'Home Page')
     }
 
